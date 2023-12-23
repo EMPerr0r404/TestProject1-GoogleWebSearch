@@ -4,13 +4,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import googleWeb.GoogleCookiesAndMainPage;
 import googleWeb.GoogleSearchResultsPage;
+import org.junit.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -72,7 +72,7 @@ public class GglSearchSteps {
             String searchPhraseLower = searchPhrase.toLowerCase();
             if (!linkTextLower.contains(searchPhraseLower)) {
                 // Jeśli tekst z wyniku nie zawiera frazy, to test jest nieudany
-                Assertions.fail(String.format("search result should contain: %s, but was: %s", searchPhraseLower, linkTextLower));
+                Assert.fail(String.format("search result should contain: %s, but was: %s", searchPhraseLower, linkTextLower));
             }
         }
     }
